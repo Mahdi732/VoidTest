@@ -1,26 +1,34 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'tailwindcss';
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --color-greenStart: #0B6B3A;
+  --color-greenEnd: #16A34A;
+  --color-redStart: #B01219;
+  --color-redEnd: #DC2626;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply text-gray-800 antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-gradient-green {
+    background-image: linear-gradient(to right, #0B6B3A, #16A34A);
+  }
+  .bg-gradient-red {
+    background-image: linear-gradient(to right, #B01219, #DC2626);
+  }
+  .bg-gradient-green-b {
+    background-image: linear-gradient(to bottom, #0B6B3A, #16A34A);
+  }
+  .text-gradient-green {
+    background-image: linear-gradient(to right, #0B6B3A, #16A34A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
